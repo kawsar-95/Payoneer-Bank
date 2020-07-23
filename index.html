@@ -25,7 +25,7 @@
             <div class="col-md-4 ">
                 <div class="deposit status">
                     <h5>Deposit</h5>
-                    <h2>$000</h2>
+                    <h2>$ <span id="currentDeposit">00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -37,7 +37,7 @@
             <div class="col-md-4">
                 <div class="balance status">
                     <h5>Balance</h5>
-                    <h2>$1200</h2>  
+                    <h2>$ <span id="currentBalance">1200</span></h2>  
                 </div>
 
                 
@@ -75,10 +75,27 @@
             transactionArea.style.display = 'block';
         })
         // Deposit Button Event Handler
-        const DepositButton = document.getElementById('addDeposit');
-        DepositButton.addEventListener('click',function(){
+            const DepositButton = document.getElementById('addDeposit');
+            DepositButton.addEventListener('click',function(){
             const depositAmount = document.getElementById('depositAmount').value;
+            const depositNumber  = parseFloat(depositAmount);
 
+            const currentDeposit = document.getElementById('currentDeposit').innerText;
+            const currentDepositNumber = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNumber;
+            document.getElementById('currentDeposit').innerText = totalDeposit;
+            
+            const currentBalance = document.getElementById('currentBalance').innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = depositNumber + currentBalanceNumber ;
+            document.getElementById("currentBalance").innerText = totalBalance;
+            
+            
+            
+            
+            document.getElementById('depositAmount').value = "";
+
+            
         })
 
 
