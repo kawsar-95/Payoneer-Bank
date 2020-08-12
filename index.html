@@ -95,10 +95,16 @@
         // const currentDepositNumber = parseFloat(currentDeposit);
         // const totalDeposit = depositNumber + currentDepositNumber;
         // document.getElementById('currentDeposit').innerText = totalDeposit;
-        updateSpanText("currentDeposit", depositNumber);
-        updateSpanText("currentBalance", depositNumber);
 
-        document.getElementById("depositAmount").value = "";
+        //27 no Module
+        if (depositNumber < 0) {
+          alert("Deposit Number can not be negative");
+        } else {
+          updateSpanText("currentDeposit", depositNumber);
+          updateSpanText("currentBalance", depositNumber);
+
+          document.getElementById("depositAmount").value = "";
+        }
       });
       // Withdraw Button Event Handler
 
